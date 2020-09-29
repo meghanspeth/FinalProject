@@ -1,0 +1,98 @@
+[
+    {
+      "femalepercentage":[
+          {
+             "year": 2008,
+              "percentage":21.5
+          },  
+          
+           {
+             "year": 2009,
+              "percentage":21.8
+          },    
+          
+         {
+             "year": 2010,
+              "percentage":21.1
+          },    
+          
+           {
+             "year": 2011,
+              "percentage":21.1
+          },    
+          
+           {
+             "year": 2012,
+              "percentage":22
+          },    
+          
+           {
+             "year": 2013,
+              "percentage":22.3
+          }, 
+          
+           {
+             "year": 2014,
+              "percentage":21.8
+          },    
+          
+           {
+             "year": 2015,
+              "percentage":21.2
+          },    
+           {
+             "year": 2016,
+              "percentage":21.7
+          },    
+           {
+             "year": 2017,
+              "percentage":22.3
+          },    
+          
+          
+      ],       
+      
+    "malepercentage":[
+          {
+             "year": 2008,
+              "percentage":13.6
+          },  
+          {
+             "year": 2009,
+              "percentage":14.2
+          },   
+        {
+             "year": 2010,
+              "percentage":14.8
+          }, 
+        {
+             "year": 2011,
+              "percentage":14.2
+          }, 
+        {
+             "year": 2012,
+              "percentage":14.9
+          }, 
+        {
+             "year": 2013,
+              "percentage":14.4
+          }, 
+        {
+             "year": 2014,
+              "percentage":14.1
+          }, 
+        {
+             "year": 2015,
+              "percentage":14.3
+          }, 
+        {
+             "year": 2016,
+              "percentage":14.5
+          }, 
+        {
+             "year": 2017,
+              "percentage":15.1
+          }, 
+    ]
+    }
+]
