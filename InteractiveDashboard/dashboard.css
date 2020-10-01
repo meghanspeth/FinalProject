@@ -17,14 +17,32 @@
 
 path
 {
-    stroke:black;
+    stroke: black;
     fill:none;
     stroke-width:3;
 }
 
-.selected path
+.male 
+{
+    stroke:blue;
+    fill:blue;
+}
+
+.male path
+{
+    stroke:blue;
+    fill:none;
+}
+.female
 {
     stroke:pink;
-    stroke-width:6;
+    fill:pink;
+   
+}
+.female path
+{
+    stroke:pink;
+    fill:none;
+   
 }
 
