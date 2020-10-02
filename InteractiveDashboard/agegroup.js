@@ -1,39 +1,35 @@
 //people is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
-var drawLines= function(people,target,xScale,yScale)
+var drawLines= function(ageGroup,target,xScale,yScale)
 
 {
     var lineGenerator =d3.line()
-        .x(function(entry)
+        .x(function(group)
           {
-            return xScale(entry.year);
+            return xScale(group.[0]);
         })
-          .y(function(entry)
+          .y(function(group)
             {
-              return yScale(entry.percentage)
+              return yScale(group[0])
           })
-       console.log("people",people[0].sex)   
-    var lines=d3.select("#genderLineGraph") 
+       console.log("ageGroup",ageGroup[0])   
+    var lines=d3.select("#linegraph2") 
         .select("#graph")
         .selectAll("g")
-        .data(people)
+        .data(ageGroup)
         .enter()
         .append("g")
-        .attr("class", function(person)
-             {
-            return person.sex
-            })
+       
           
-        
-        //tooltip on
+           //tooltip on
     .on("mouseenter" ,function(person)
       {
         
       var xPos = d3.event.pageX;
       var yPos = d3.event.pageY;
       
-        d3.select("#tooltip")
+        d3.select("#tooltip2")
         .classed("hidden",false)
         .style("top",yPos+"px")
         .style("left",xPos+"px")
@@ -43,18 +39,18 @@ var drawLines= function(people,target,xScale,yScale)
    // tool tip off
     .on("mouseleave",function()
     {
-        d3.select("#tooltip")    
+        d3.select("#tooltip2")    
         .classed("hidden",true);
     })
-
-          lines.append("path")
-       .datum(function(person)
+  
+  
+          lines.append("path2")
+       .datum(function(group)
                 {
-             
-                 return person.years
+             console.log(ageGroup);
+                 return ageGroup.years
                 })
        .attr("d", lineGenerator)
-    
   
 }
 
@@ -71,12 +67,12 @@ var drawAxes = function(graphDim,margins,xScale,yScale)
   var xAxis= d3.axisBottom(xScale)
   var yAxis=d3.axisLeft(yScale)
   
-    d3.select("#genderLineGraph")
+    d3.select("#linegraph2")
         .append("g")
          .attr("transform","translate("+margins.left+","+(margins.top+graphDim.height)+")")
         .call(xAxis)
     
-    d3.select("#genderLineGraph")
+    d3.select("#linegraph2")
         .append("g")
          .attr("transform","translate("+margins.left+"," +(margins.top)+")")
         .call(yAxis)
@@ -88,12 +84,12 @@ var drawAxes = function(graphDim,margins,xScale,yScale)
 //margins - objedct that stores the size of the margins
 var drawLabels = function(graphDim,margins)
 {
-    var Labels= d3.select("#genderLineGraph")
+    var Labels= d3.select("#linegraph2")
         .append("g")
         .classed("labels",true)
     
         Labels.append("text")
-               .text("Percentage of People with any Mental Illness Divided by Gender ")
+               .text("Percentage of People with any Mental Illness Divided by Age Group ")
                 .classed("title", true)
                 .attr("text-anchor","middle")
                 .attr("x",margins.left+(graphDim.width/2))
@@ -119,19 +115,27 @@ var drawLabels = function(graphDim,margins)
 //draw legend
 var drawLegend = function(graphDim,margins)
 {
-    var Legend = d3.select("#genderLineGraph")
+    var Legend = d3.select("#linegraph2")
         .append("g")
         .classed("legend", true)
         .attr("transform","translate("+(margins.left+10) +"," + (margins.top+10)+")");
     
     var categories = [
        {
-           class:"female",
-           name:"Female"
+           class:"18",
+           name:"18-25"
        },
        {
-           class:"male",
-           name:"Male"
+           class:"26",
+           name:"26 or Older"
+       },
+         {
+           class:"49",
+           name:"26-49"
+       },
+         {
+           class:"50",
+           name:"50 or Older"
        }
     ]
     
@@ -161,13 +165,13 @@ var drawLegend = function(graphDim,margins)
   
 }
 
-var initGraph=function(people)
+var initGraph2=function(ageGroup)
 {
     //size of screen-might have to make smaller to its part of dashboard
     var screen = {width:600,height:300}
     //space on each side
     var margins=
-        {left:50,right:20,top:20,bottom:50}
+        {left:50,right:20,top:30,bottom:30}
     
     var graph=
         {
@@ -175,16 +179,16 @@ var initGraph=function(people)
             height: screen.height-margins.top-margins.bottom
         }
     console.log(graph);
-     d3.select("#genderLineGraph")
+     d3.select("#linegraph2")
     .attr("width",screen.width)
     .attr("height",screen.height)
     
-    var target = d3.select("#genderLineGraph")
+    var target = d3.select("#linegraph2")
     .append("g")
     .attr("id","graph")
     .attr("transform",
-          "translate("+margins.left+","+
-                        margins.top+")");
+          "translate("+margins.right+","+
+                        margins.bottom+")");
     
  
      var xScale = d3.scaleLinear()
@@ -192,13 +196,14 @@ var initGraph=function(people)
         .range([0,graph.width])
 
     var yScale = d3.scaleLinear()
-        .domain([10,25])
+        .domain([15,25])
         .range([graph.height,0])
     
-    
+ 
+        
     drawAxes(graph,margins,xScale,yScale);
-    drawLines(people,target,xScale,yScale);
-    drawLabels(graph,margins,xScale,yScale);
+    drawLines(ageGroup,target,xScale,yScale);
+    drawLabels(graph, margins,xScale,yScale);
     drawLegend(graph,margins,xScale,yScale);
     
 }
@@ -206,17 +211,15 @@ var initGraph=function(people)
 
 
 //successFCN for line graph
-var successFCN= function(people)
+var success2FCN= function(ageGroup)
 {
-    console.log("people", people)
-    initGraph(people);
+    console.log("ageGroup", ageGroup)
+    initGraph2(ageGroup);
 }
-var failFCN=function(error)
+var fail2FCN=function(error)
 {
     console.log("error", error)
 }
-var pplPromise=d3.json("genderD.json")
-pplPromise.then(successFCN,failFCN)
-
-
+var groupPromise=d3.csv("ageGroup.csv")
+groupPromise.then(success2FCN,fail2FCN)
 

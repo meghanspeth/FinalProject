@@ -46,3 +46,28 @@ path
    
 }
 
+#tooltip.hidden2
+{
+    display:none;
+}
+
+#tooltip2
+{
+    position:absolute;
+    width:300px;
+    height:auto;
+    padding:10px;
+    background-color:white;
+    border-radius:10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+
+path2
+{
+    stroke: blue;
+    fill:none;
+    stroke-width:3;
+}
+
+

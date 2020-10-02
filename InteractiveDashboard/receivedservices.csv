@@ -1,3 +1,12 @@
-Year,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017
-Percent of all people with mental illness,18.5,18,18.1,18.5,19.6,19.4,20.1,21.7,22.1,25.8
-Percent of people with mental illness who receieved mental health services,11,11.2,11,11.4,12,12.2,11.9,11.7,12.9,14.9
+Year ,Percent Of People With Any Mental Illness,Percent Of People Who Received Mental Health Services,,,,,,,
+2008,18.5,11,,,,,,,
+2009,18,11.2,,,,,,,
+2010,18.1,11,,,,,,,
+2011,18.5,11.4,,,,,,,
+2012,19.6,12,,,,,,,
+2013,19.4,12.2,,,,,,,
+2014,20.1,11.9,,,,,,,
+2015,21.7,11.7,,,,,,,
+2016,22.1,12.9,,,,,,,
+2017,25.8,14.9,
+,22.1,25.8,12.9,14.9
