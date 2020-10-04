@@ -1,13 +1,13 @@
 //people is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
-var drawLines= function(ageGroup,target,xScale,yScale)
+var drawLines2= function(ageGroup,target,xScale,yScale)
 
 {
     var lineGenerator =d3.line()
         .x(function(group)
           {
-            return xScale(group.[0]);
+            return xScale(group[0]);
         })
           .y(function(group)
             {
@@ -15,7 +15,7 @@ var drawLines= function(ageGroup,target,xScale,yScale)
           })
        console.log("ageGroup",ageGroup[0])   
     var lines=d3.select("#linegraph2") 
-        .select("#graph")
+        .select("#graph2")
         .selectAll("g")
         .data(ageGroup)
         .enter()
@@ -23,29 +23,29 @@ var drawLines= function(ageGroup,target,xScale,yScale)
        
           
            //tooltip on
-    .on("mouseenter" ,function(person)
-      {
+   // .on("mouseenter" ,function(group)
+   //   {
         
-      var xPos = d3.event.pageX;
-      var yPos = d3.event.pageY;
+   //   var xPos = d3.event.pageX;
+   //   var yPos = d3.event.pageY;
       
-        d3.select("#tooltip2")
-        .classed("hidden",false)
-        .style("top",yPos+"px")
-        .style("left",xPos+"px")
+  //      d3.select("#tooltip2")
+  //      .classed("hidden",false)
+   //     .style("top",yPos+"px")
+  //      .style("left",xPos+"px")
         
        
-      })
+  //    })
    // tool tip off
-    .on("mouseleave",function()
-    {
-        d3.select("#tooltip2")    
-        .classed("hidden",true);
-    })
+ //   .on("mouseleave",function()
+ //   {
+ //       d3.select("#tooltip2")    
+//        .classed("hidden",true);
+ //   })
   
   
-          lines.append("path2")
-       .datum(function(group)
+        lines.append("path2")
+        .datum(function(group)
                 {
              console.log(ageGroup);
                  return ageGroup.years
@@ -62,7 +62,7 @@ var makeTranslateString = function(x,y)
 }
 
 
-var drawAxes = function(graphDim,margins,xScale,yScale)
+var drawAxes2 = function(graphDim,margins,xScale,yScale)
 {
   var xAxis= d3.axisBottom(xScale)
   var yAxis=d3.axisLeft(yScale)
@@ -82,7 +82,7 @@ var drawAxes = function(graphDim,margins,xScale,yScale)
         //labels
 //graphDim -object that stores dimensions of the graph area
 //margins - objedct that stores the size of the margins
-var drawLabels = function(graphDim,margins)
+var drawLabels2 = function(graphDim,margins)
 {
     var Labels= d3.select("#linegraph2")
         .append("g")
@@ -113,14 +113,14 @@ var drawLabels = function(graphDim,margins)
 }
 
 //draw legend
-var drawLegend = function(graphDim,margins)
+var drawLegend2 = function(graphDim,margins)
 {
     var Legend = d3.select("#linegraph2")
         .append("g")
         .classed("legend", true)
         .attr("transform","translate("+(margins.left+10) +"," + (margins.top+10)+")");
     
-    var categories = [
+    var categories2 = [
        {
            class:"18",
            name:"18-25"
@@ -140,7 +140,7 @@ var drawLegend = function(graphDim,margins)
     ]
     
     var entries=Legend.selectAll("g")
-        .data(categories)
+        .data(categories2)
         .enter()
         .append("g")
         .classed("legendEntry",true)
@@ -148,7 +148,7 @@ var drawLegend = function(graphDim,margins)
              {
             return category.class;
         })
-        .attr("transform", function(category,index)
+        .attr("transform", function(category2,index)
              {
                 return "translate(0,"+(index*20)+")";
         })
@@ -171,7 +171,7 @@ var initGraph2=function(ageGroup)
     var screen = {width:600,height:300}
     //space on each side
     var margins=
-        {left:50,right:20,top:30,bottom:30}
+        {left:50,right:20,top:40,bottom:30}
     
     var graph=
         {
@@ -201,10 +201,10 @@ var initGraph2=function(ageGroup)
     
  
         
-    drawAxes(graph,margins,xScale,yScale);
-    drawLines(ageGroup,target,xScale,yScale);
-    drawLabels(graph, margins,xScale,yScale);
-    drawLegend(graph,margins,xScale,yScale);
+    drawAxes2(graph,margins,xScale,yScale);
+    drawLines2(ageGroup,target,xScale,yScale);
+    drawLabels2(graph, margins,xScale,yScale);
+    drawLegend2(graph,margins,xScale,yScale);
     
 }
 
