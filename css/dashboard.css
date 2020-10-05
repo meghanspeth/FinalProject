@@ -1,3 +1,5 @@
+body {background-color:antiquewhite}
+
 #tooltip.hidden
 {
     display:none;
@@ -50,7 +52,6 @@ path
 {
     display:none;
 }
-
 #tooltip2
 {
     position:absolute;
@@ -70,4 +71,47 @@ path2
     stroke-width:3;
 }
 
+.18 path
+{
+    stroke:blue;
+    fill:none;
+}
+.18 
+{
+    stroke:blue;
+    fill:none;
+}
 
+.26 path
+{
+    stroke:red;
+    fill:none;
+}
+
+.26
+{
+    stroke:red;
+    fill:none;
+}
+
+.49
+{
+  stroke: green;
+    fill:none;
+}
+.49 path
+{
+    stroke:green;
+    fill:none;
+}
+
+.50
+{
+    stroke: yellow;
+    fill:none;
+}
+.50 path 
+{
+    stroke:yellow;
+    fill:none;
+}

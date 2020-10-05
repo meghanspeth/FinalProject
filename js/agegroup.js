@@ -1,56 +1,29 @@
-//people is the array of data that is divided between male and female
+//ageGroup is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
 var drawLines2= function(ageGroup,target,xScale,yScale)
 
 {
-    var lineGenerator =d3.line()
+    var lineGenerator2 =d3.line()
         .x(function(group)
           {
-            return xScale(group[0]);
+            return xScale(group.year);
         })
           .y(function(group)
             {
-              return yScale(group[0])
+              return yScale(group.teen)
           })
-       console.log("ageGroup",ageGroup[0])   
-    var lines=d3.select("#linegraph2") 
-        .select("#graph2")
-        .selectAll("g")
-        .data(ageGroup)
-        .enter()
-        .append("g")
-       
+        console.log("ageGroup",ageGroup[1].teen)
+   
+    
+  
           
-           //tooltip on
-   // .on("mouseenter" ,function(group)
-   //   {
-        
-   //   var xPos = d3.event.pageX;
-   //   var yPos = d3.event.pageY;
-      
-  //      d3.select("#tooltip2")
-  //      .classed("hidden",false)
-   //     .style("top",yPos+"px")
-  //      .style("left",xPos+"px")
-        
+     var lines=d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path2")
+        .datum(ageGroup)
+        .attr("d", lineGenerator2)
        
-  //    })
-   // tool tip off
- //   .on("mouseleave",function()
- //   {
- //       d3.select("#tooltip2")    
-//        .classed("hidden",true);
- //   })
-  
-  
-        lines.append("path2")
-        .datum(function(group)
-                {
-             console.log(ageGroup);
-                 return ageGroup.years
-                })
-       .attr("d", lineGenerator)
   
 }
 
@@ -93,14 +66,14 @@ var drawLabels2 = function(graphDim,margins)
                 .classed("title", true)
                 .attr("text-anchor","middle")
                 .attr("x",margins.left+(graphDim.width/2))
-                .attr("y",margins.top*1.5)
+                .attr("y",margins.top*1.05)
     
         Labels.append("text")
                 .text("Year")
                 .classed("label",true)
                 .attr("text-anchor","middle")
                 .attr("x", margins.left+(graphDim.width/2))
-                .attr("y",graphDim.height*1.25)
+                .attr("y",graphDim.height*1.3)
     
      Labels.append("g")
             .attr("transform","translate(15,"+(margins.top+(graphDim.height/2))+")")
@@ -215,11 +188,12 @@ var success2FCN= function(ageGroup)
 {
     console.log("ageGroup", ageGroup)
     initGraph2(ageGroup);
+   
 }
 var fail2FCN=function(error)
 {
     console.log("error", error)
 }
-var groupPromise=d3.csv("ageGroup.csv")
+var groupPromise=d3.csv("../csv/ageGroup.csv")
 groupPromise.then(success2FCN,fail2FCN)
 

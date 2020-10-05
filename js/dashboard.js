@@ -5,7 +5,7 @@ var drawLines= function(people,target,xScale,yScale)
 
 {
     var lineGenerator =d3.line()
-        .x(function(entry)
+        .x(function(entry,i)
           {
             return xScale(entry.year);
         })
@@ -25,7 +25,21 @@ var drawLines= function(people,target,xScale,yScale)
             return person.sex
             })
           
-        
+        target.append("g")
+        .selectAll("circle")
+        .data(people)
+        .enter()
+        .append("circle")
+        .attr("cx", function(entry)
+             {
+            return xScale(entry.year)
+        })
+        .attr("cy", function(entry)
+             {
+            return yScale(entry.percentage)
+        })
+        .attr("r",6)
+    
         //tooltip on
     .on("mouseenter" ,function(person)
       {
@@ -215,7 +229,7 @@ var failFCN=function(error)
 {
     console.log("error", error)
 }
-var pplPromise=d3.json("genderD.json")
+var pplPromise=d3.json("../csv/genderD.json")
 pplPromise.then(successFCN,failFCN)
 
 

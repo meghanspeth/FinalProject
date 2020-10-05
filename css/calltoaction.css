@@ -1,0 +1,8 @@
+body {background-color: burlywood}
+h2{font-size:25px;color:navy;}
+header{font-size: 35px; color:azure; font-weight:bold;}
+p{color:white}
+#box1 {height:300px; width:500px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;padding-bottom: 10px}
+#box2 {height:200px; width:300px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;margin-top: 15px}
+#box3 {height:300px; width:400px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;margin-top: 15px}
+h3 {border-color:navy;height:30px;width:180px; background-color:plum;padding: 4px;color: antiquewhite}

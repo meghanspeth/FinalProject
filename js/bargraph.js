@@ -194,5 +194,5 @@ var failFCN=function(error)
 {
     console.log("error",error)
 }
-var groupPromise=d3.csv("receivedservices.csv")
+var groupPromise=d3.csv("../csv/receivedservices.csv")
  groupPromise.then(successFCN, failFCN)
