@@ -1,4 +1,6 @@
 body {background-color: #EAE7DC}
+h3 {border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px; }
+
 #tooltip.hidden
 {
     display:none;
@@ -16,20 +18,7 @@ body {background-color: #EAE7DC}
     pointer-events:none;
 }
 
-#state
-{
-  font-size:30px;  
-}
 
-#county
-{
-    font-size:60px;
-}
-
-circle
-{
-    fill:black;
-}
 
 .withMI
 {
@@ -43,7 +32,7 @@ circle
 
 .title
 {
-    font-size:40px;
+    font-size:20px;
 }
 
 .label

@@ -7,20 +7,22 @@ var drawreasonBars = function(reasons,target, graph, xScale,yScale)
         .data(reasons)
         .enter()
         .append("rect")
-        .attr("x", function(reason)
-             { var x = xScale(reason.Reason) ; console.log(x,reason.Reason);
-                return x
-             })
         .attr("y", function(reason)
+             { var y = yScale(reason.Reason) ; console.log(y,reason.Reason);
+                return y
+             })
+        .attr("x", function(reason)
              {
-              console.log(yScale(reason.Percentage))
-            return yScale(reason.Percentage)
+             console.log(xScale(reason.Percentage))
+            return xScale(reason.Percentage)
             })
-        .attr("width", xScale.bandwidth)
-         .attr("height", function (reason)
-           { var y= yScale(reason.Percentage);
-               console.log(yScale([0]))
-                return graph.height - y
+        .attr("height", xScale.bandwidth)
+         .attr("width", function (reason)
+           { 
+       console.log (xScale(reason.Percentage))
+       var x= xScale(reason.Percentage);
+               console.log(xScale([0]))
+                return graph.width
             })    
 }
 
@@ -88,7 +90,7 @@ var drawreasonLabels = function(graphDim,margins)
 //draw legend
 //var drawLegend = function(graphDim,margins)
 //{
-  //  var Legend = d3.select("svg")
+ //   var Legend = d3.select("svg")
   //      .append("g")
  //       .classed("legend", true)
  //        .attr("transform","translate("+(margins.left+10) +"," + (margins.top+10)+")");
@@ -137,7 +139,7 @@ var initreasonGraph = function(reasons)
     //size of screen
     var screen = {width:800,height:600}
     //how much space on each side
-    var margins = {left:50,right:20,top:10,bottom:40}
+    var margins = {left:100,right:20,top:20,bottom:40}
     
     
     
@@ -160,14 +162,14 @@ var initreasonGraph = function(reasons)
                         margins.top+")");
     
     
-    var xScale = d3.scaleBand()
+    var yScale = d3.scaleBand()
         .domain(["Couldn’t afford the cost","Didn’t know of resources closely available","Concerned about what others would think/ confidentiality","Thought they could handle without treatment","Other","Thought they would be committed or forced to take meds"])
-        .range([0,graph.width])
+        .range([graph.height,0])
         .paddingInner(.50)
 //console.log(xScale("Other"))
-    var yScale = d3.scaleLinear()
+    var xScale = d3.scaleLinear()
         .domain([0,75])
-        .range([graph.height,0])
+        .range([0,graph.width])
     
     drawreasonAxes(graph,margins,xScale,yScale);
     drawreasonBars(reasons,target,graph,xScale,yScale);

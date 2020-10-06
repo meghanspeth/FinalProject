@@ -15,11 +15,36 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
               return yScale(group.teen)
           })
         console.log("ageGroup",ageGroup[0].teen)
+     
      d3.select("#linegraph2") 
         .select("#graph")
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator2)
+    
+       .on("mouseover", function(group)
+     {
+            var xPos=d3.event.pageX;
+            var yPos=d3.event.pageY;
+            d3.select("#tooltip")
+            .classed("hidden",false)
+            .style("top",yPos+"px")
+            .style("left", xPos+"px")
+      
+            d3.select(this)
+            .classed("selected",true)
+            .raise()
+    }
+     )
+  
+  .on("mouseleave",function(group)
+     {
+        d3.select("#tooltip")
+        .classed("hidden",true)
+        d3.select(this)
+        .classed("selected",true)
+    }
+     )
     
 //line for twenty (26 or older) line
     var lineGenerator4 =d3.line()
@@ -40,6 +65,30 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         .datum(ageGroup)
         .attr("d", lineGenerator4)
     
+        .on("mouseover", function(group)
+     {
+            var xPos=d3.event.pageX;
+            var yPos=d3.event.pageY;
+            d3.select("#tooltip")
+            .classed("hidden",false)
+            .style("top",yPos+"px")
+            .style("left", xPos+"px")
+      
+            d3.select(this)
+            .classed("selected",true)
+            .raise()
+    }
+     )
+  
+  .on("mouseleave",function(group)
+     {
+        d3.select("#tooltip")
+        .classed("hidden",true)
+        d3.select(this)
+        .classed("selected",true)
+    }
+     )
+    
     //line for mid age (26-49) group
     var lineGenerator3 =d3.line()
         .x(function(group)
@@ -59,6 +108,29 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         .datum(ageGroup)
         .attr("d", lineGenerator3)
        
+        .on("mouseover", function(group)
+     {
+            var xPos=d3.event.pageX;
+            var yPos=d3.event.pageY;
+            d3.select("#tooltip")
+            .classed("hidden",false)
+            .style("top",yPos+"px")
+            .style("left", xPos+"px")
+      
+            d3.select(this)
+            .classed("selected",true)
+            .raise()
+    }
+     )
+  
+  .on("mouseleave",function(group)
+     {
+        d3.select("#tooltip")
+        .classed("hidden",true)
+        d3.select(this)
+        .classed("selected",true)
+    }
+     )
  //line for old (50 or older) line
     var lineGenerator5 =d3.line()
         .x(function(group)
@@ -77,6 +149,29 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator5)
+        .on("mouseover", function(group)
+     {
+            var xPos=d3.event.pageX;
+            var yPos=d3.event.pageY;
+            d3.select("#tooltip")
+            .classed("hidden",false)
+            .style("top",yPos+"px")
+            .style("left", xPos+"px")
+      
+            d3.select(this)
+            .classed("selected",true)
+            .raise()
+    }
+     )
+  
+  .on("mouseleave",function(group)
+     {
+        d3.select("#tooltip")
+        .classed("hidden",true)
+        d3.select(this)
+        .classed("selected",true)
+    }
+     )
 }
 
 
@@ -147,19 +242,19 @@ var drawageLegend = function(graphDim,margins)
     
     var categories2 = [
        {
-           class:"18",
+           class:"teen",
            name:"18-25"
        },
        {
-           class:"26",
+           class:"twenty",
            name:"26 or Older"
        },
          {
-           class:"49",
+           class:"mid",
            name:"26-49"
        },
          {
-           class:"50",
+           class:"old",
            name:"50 or Older"
        }
     ]
@@ -193,15 +288,15 @@ var drawageLegend = function(graphDim,margins)
 var initageGraph=function(ageGroup)
 {
     //size of screen-might have to make smaller to its part of dashboard
-    var screen = {width:600,height:300}
+    var screen = {width:600,height:400}
     //space on each side
     var margins=
-        {left:40,right:30,top:50,bottom:30}
+        {left:50,right:40,top:40,bottom:40}
     
     var graph=
         {
             width:screen.width-margins.left-margins.right,
-            height: screen.height-margins.top-margins.bottom
+            height: screen.height-margins.top -margins.bottom,
         }
     console.log(graph);
      d3.select("#linegraph2")
@@ -217,7 +312,7 @@ var initageGraph=function(ageGroup)
     
  
      var xScale = d3.scaleLinear()
-        .domain([2008,2017])
+        .domain([2011,2017])
         .range([0,graph.width])
 
     var yScale = d3.scaleLinear()

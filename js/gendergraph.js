@@ -13,7 +13,8 @@ var drawgenderLines= function(people,target,xScale,yScale)
             {
               return yScale(entry.percentage)
           })
-       console.log("people",people[0].sex)   
+       console.log("people",people[0].sex) 
+    console.log(people[0].years)
     var lines=d3.select("#genderLineGraph") 
         .select("#graph")
         .selectAll("g")
@@ -24,10 +25,10 @@ var drawgenderLines= function(people,target,xScale,yScale)
              {
             return person.sex
             })
-          
+    
         target.append("g")
         .selectAll("circle")
-        .data(people)
+        .data(people[0].years)
         .enter()
         .append("circle")
         .attr("cx", function(entry)
@@ -35,12 +36,12 @@ var drawgenderLines= function(people,target,xScale,yScale)
             return xScale(entry.year)
         })
         .attr("cy", function(entry)
-             { console.log(entry)
+             { //console.log(entry)
             return yScale(entry.percentage)
         })
-        .attr("r",6)
-    
-        //tooltip on
+        .attr("r",4)
+ 
+     //tooltip on
     .on("mouseenter" ,function(person)
       {
         
@@ -52,13 +53,64 @@ var drawgenderLines= function(people,target,xScale,yScale)
         .style("top",yPos+"px")
         .style("left",xPos+"px")
         
+          d3.select("#sex")
+        .text(person.sex);
+        
+        d3.select("#percent")
+        .text(person.percentage);  
        
       })
    // tool tip off
     .on("mouseleave",function()
     {
         d3.select("#tooltip")    
-        .classed("hidden",false);
+        .classed("hidden",true);
+    })
+
+          lines.append("path")
+       .datum(function(person)
+                {
+             
+                 return person.years
+                })
+       .attr("d", lineGenerator)
+    
+    //circle and mouseenter/leave functions for male line
+        target.append("g")
+        .selectAll("circle")
+        .data(people[1].years)
+        .enter()
+        .append("circle")
+        .attr("cx", function(entry)
+             {
+            return xScale(entry.year)
+        })
+        .attr("cy", function(entry)
+             { console.log(entry)
+            return yScale(entry.percentage)
+        })
+        .attr("r",4)
+    
+        //tooltip on-blue line
+    .on("mouseenter" ,function(person)
+      {
+        
+      var xPos = d3.event.pageX;
+      var yPos = d3.event.pageY;
+      
+        d3.select("#tooltip")
+        .classed("hidden",false)
+        .style("top",yPos+"px")
+        .style("left",xPos+"px")
+        
+           
+       
+      })
+   // tool tip off-blue line
+    .on("mouseleave",function()
+    {
+        d3.select("#tooltip")    
+        .classed("hidden",true);
     })
 
           lines.append("path")
