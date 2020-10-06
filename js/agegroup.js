@@ -1,30 +1,82 @@
 //ageGroup is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
-var drawLines2= function(ageGroup,target,xScale,yScale)
+var drawageLines= function(ageGroup,target,xScale,yScale)
 
 {
+  //line for teen age group
     var lineGenerator2 =d3.line()
         .x(function(group)
-          {
-            return xScale(group.year);
+          { //console.log (xScale(group.Year))
+            return xScale(group.Year);
         })
           .y(function(group)
-            {
+            { console.log (yScale(group.teen))
               return yScale(group.teen)
           })
-        console.log("ageGroup",ageGroup[1].teen)
-   
-    
-  
-          
-     var lines=d3.select("#linegraph2") 
+        console.log("ageGroup",ageGroup[0].teen)
+     d3.select("#linegraph2") 
         .select("#graph")
-        .append("path2")
+        .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator2)
-       
+    
+//line for twenty (26 or older) line
+    var lineGenerator4 =d3.line()
+        .x(function(group)
+          { //console.log (xScale(group.Year))
+            return xScale(group.Year);
+        })
+          .y(function(group)
+            { console.log (yScale(group.twenty))
+              return yScale(group.twenty)
+          })
+        console.log("ageGroup",ageGroup[0].twenty)
   
+        
+    d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path")
+        .datum(ageGroup)
+        .attr("d", lineGenerator4)
+    
+    //line for mid age (26-49) group
+    var lineGenerator3 =d3.line()
+        .x(function(group)
+          { //console.log (xScale(group.Year))
+            return xScale(group.Year);
+        })
+          .y(function(group)
+            { console.log (yScale(group.mid))
+              return yScale(group.mid)
+          })
+        console.log("ageGroup",ageGroup[0].mid)
+  
+        
+    d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path")
+        .datum(ageGroup)
+        .attr("d", lineGenerator3)
+       
+ //line for old (50 or older) line
+    var lineGenerator5 =d3.line()
+        .x(function(group)
+          { //console.log (xScale(group.Year))
+            return xScale(group.Year);
+        })
+          .y(function(group)
+            { console.log (yScale(group.old))
+              return yScale(group.old)
+          })
+        console.log("ageGroup",ageGroup[0].old)
+  
+        
+    d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path")
+        .datum(ageGroup)
+        .attr("d", lineGenerator5)
 }
 
 
@@ -35,7 +87,7 @@ var makeTranslateString = function(x,y)
 }
 
 
-var drawAxes2 = function(graphDim,margins,xScale,yScale)
+var drawageAxes = function(graphDim,margins,xScale,yScale)
 {
   var xAxis= d3.axisBottom(xScale)
   var yAxis=d3.axisLeft(yScale)
@@ -55,7 +107,7 @@ var drawAxes2 = function(graphDim,margins,xScale,yScale)
         //labels
 //graphDim -object that stores dimensions of the graph area
 //margins - objedct that stores the size of the margins
-var drawLabels2 = function(graphDim,margins)
+var drawageLabels = function(graphDim,margins)
 {
     var Labels= d3.select("#linegraph2")
         .append("g")
@@ -86,7 +138,7 @@ var drawLabels2 = function(graphDim,margins)
 }
 
 //draw legend
-var drawLegend2 = function(graphDim,margins)
+var drawageLegend = function(graphDim,margins)
 {
     var Legend = d3.select("#linegraph2")
         .append("g")
@@ -138,13 +190,13 @@ var drawLegend2 = function(graphDim,margins)
   
 }
 
-var initGraph2=function(ageGroup)
+var initageGraph=function(ageGroup)
 {
     //size of screen-might have to make smaller to its part of dashboard
     var screen = {width:600,height:300}
     //space on each side
     var margins=
-        {left:50,right:20,top:40,bottom:30}
+        {left:40,right:30,top:50,bottom:30}
     
     var graph=
         {
@@ -172,28 +224,28 @@ var initGraph2=function(ageGroup)
         .domain([15,25])
         .range([graph.height,0])
     
- 
+  
         
-    drawAxes2(graph,margins,xScale,yScale);
-    drawLines2(ageGroup,target,xScale,yScale);
-    drawLabels2(graph, margins,xScale,yScale);
-    drawLegend2(graph,margins,xScale,yScale);
+    drawageAxes(graph,margins,xScale,yScale);
+    drawageLines(ageGroup,target,xScale,yScale);
+    drawageLabels(graph, margins,xScale,yScale);
+    drawageLegend(graph,margins,xScale,yScale);
     
 }
 
 
 
 //successFCN for line graph
-var success2FCN= function(ageGroup)
+var successageFCN= function(ageGroup)
 {
     console.log("ageGroup", ageGroup)
-    initGraph2(ageGroup);
+    initageGraph(ageGroup);
    
 }
-var fail2FCN=function(error)
+var failageFCN=function(error)
 {
     console.log("error", error)
 }
 var groupPromise=d3.csv("../csv/ageGroup.csv")
-groupPromise.then(success2FCN,fail2FCN)
+groupPromise.then(successageFCN,failageFCN)
 

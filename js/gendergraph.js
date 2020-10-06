@@ -1,7 +1,7 @@
 //people is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
-var drawLines= function(people,target,xScale,yScale)
+var drawgenderLines= function(people,target,xScale,yScale)
 
 {
     var lineGenerator =d3.line()
@@ -35,7 +35,7 @@ var drawLines= function(people,target,xScale,yScale)
             return xScale(entry.year)
         })
         .attr("cy", function(entry)
-             {
+             { console.log(entry)
             return yScale(entry.percentage)
         })
         .attr("r",6)
@@ -58,7 +58,7 @@ var drawLines= function(people,target,xScale,yScale)
     .on("mouseleave",function()
     {
         d3.select("#tooltip")    
-        .classed("hidden",true);
+        .classed("hidden",false);
     })
 
           lines.append("path")
@@ -80,7 +80,7 @@ var makeTranslateString = function(x,y)
 }
 
 
-var drawAxes = function(graphDim,margins,xScale,yScale)
+var drawgenderAxes = function(graphDim,margins,xScale,yScale)
 {
   var xAxis= d3.axisBottom(xScale)
   var yAxis=d3.axisLeft(yScale)
@@ -100,7 +100,7 @@ var drawAxes = function(graphDim,margins,xScale,yScale)
         //labels
 //graphDim -object that stores dimensions of the graph area
 //margins - objedct that stores the size of the margins
-var drawLabels = function(graphDim,margins)
+var drawgenderLabels = function(graphDim,margins)
 {
     var Labels= d3.select("#genderLineGraph")
         .append("g")
@@ -131,7 +131,7 @@ var drawLabels = function(graphDim,margins)
 }
 
 //draw legend
-var drawLegend = function(graphDim,margins)
+var drawgenderLegend = function(graphDim,margins)
 {
     var Legend = d3.select("#genderLineGraph")
         .append("g")
@@ -175,7 +175,7 @@ var drawLegend = function(graphDim,margins)
   
 }
 
-var initGraph=function(people)
+var initgenderGraph=function(people)
 {
     //size of screen-might have to make smaller to its part of dashboard
     var screen = {width:600,height:300}
@@ -210,10 +210,10 @@ var initGraph=function(people)
         .range([graph.height,0])
     
     
-    drawAxes(graph,margins,xScale,yScale);
-    drawLines(people,target,xScale,yScale);
-    drawLabels(graph,margins,xScale,yScale);
-    drawLegend(graph,margins,xScale,yScale);
+    drawgenderAxes(graph,margins,xScale,yScale);
+    drawgenderLines(people,target,xScale,yScale);
+    drawgenderLabels(graph,margins,xScale,yScale);
+    drawgenderLegend(graph,margins,xScale,yScale);
     
 }
 
@@ -223,7 +223,7 @@ var initGraph=function(people)
 var successFCN= function(people)
 {
     console.log("people", people)
-    initGraph(people);
+    initgenderGraph(people);
 }
 var failFCN=function(error)
 {

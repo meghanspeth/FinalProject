@@ -1,2 +1,8 @@
-body{background-color:bisque}
-h1{font-size: 3em; color:black;}
+body{background-color:#EAE7DC;
+   }
+h1{font-size: 3em; color: #E85A4F;}
+#blurb{font-size: 20px; color: #E98074}
+#navigate{font-size: 25px; color: grey}
+li {font-size:20px;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;margin-top: 15px}
+h3{font-size: 20px; color: #E98074}
+#oprahbox{font-size: 20px; color: #E85A4F;border-width:15px; border-radius: 10px; height:300px;width:400px; background-color:#D8C3A5;padding:8px;font-family:verdana;font-size:15px;margin-top: 15px;text-align:center;float:right; margin-right: 100px; margin-bottom:100px }

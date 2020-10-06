@@ -1,8 +1,15 @@
-body {background-color: burlywood}
-h2{font-size:25px;color:navy;}
-header{font-size: 35px; color:azure; font-weight:bold;}
+body {background-color: #EAE7DC}
+h2{font-size:25px;color:#E98074;}
+header{font-size: 35px; color:#E85A4F; font-weight:bold;}
 p{color:white}
-#box1 {height:300px; width:500px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;padding-bottom: 10px}
-#box2 {height:200px; width:300px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;margin-top: 15px}
-#box3 {height:300px; width:400px; border-color:cadetblue; border-width:15px; border-style:solid;background-color:skyblue; padding-left:10px;padding-right:10px;margin-top: 15px}
-h3 {border-color:navy;height:30px;width:180px; background-color:plum;padding: 4px;color: antiquewhite}
+#box1 {height:300px; width:500px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;padding-bottom: 10px}
+#box2 {height:200px; width:300px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px}
+#box3 {height:300px; width:400px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px}
+h3 {border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px}
+
+
+#EAE7DC - brown
+#E98074 -light pink
+#E85A4F -pink
+#D8C3A5 - tan
+#8E8D8A -grey

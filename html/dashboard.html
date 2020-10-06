@@ -1,7 +1,14 @@
 <html>
 <head>
 <title>Interactive Dashboard</title>
+   <link rel="stylesheet" href="../css/reasonsbargraph.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+        
+    <div id="message">
+        <h2> Interactive Dashboard</h2>
+        <p> </p>
+        </div>
+    
 </head>
 <body>
     <svg id="genderLineGraph" >
@@ -18,14 +25,22 @@
   <svg id="linegraph2">
     
     </svg>  
-    <div class="hidden" id="tooltip2"></div>
     
+    <svg id="reasonsbargraph">
+    </svg>
+    
+<svg id= "receivedbargraph">
+    </svg>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-
- <script src="../js/dashboard.js"></script> 
+<script src="../js/gendergraph.js"></script>
  <script src="../js/agegroup.js"> </script>
+<script src="../js/reasonsbargraph.js"></script>
+    <script src="../js/receivebargraph.js"></script>
+   
+     
+     
     
-<h3> <a href="homepage.html"> Return to Homepage </a></h3>
+<h3 id=return> <a href="homepage.html"> Return to Homepage </a></h3>
 </body>    
 </html>
 

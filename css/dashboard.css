@@ -1,5 +1,11 @@
-body {background-color:antiquewhite}
-
+body {background-color:#EAE7DC}
+#genderLinegraph{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;border-width:15px; border-radius: 10px;float:left;
+    width:600px;
+    height:300px;}
+#lineGraph2{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;}
+#reasonsbargraph {background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;}
+#return{border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;}
+#message {text-align:center; font-weight:bold;color:black}
 #tooltip.hidden
 {
     display:none;
@@ -16,6 +22,7 @@ body {background-color:antiquewhite}
     box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
     pointer-events:none;
 }
+
 
 path
 {
@@ -48,10 +55,6 @@ path
    
 }
 
-#tooltip.hidden2
-{
-    display:none;
-}
 #tooltip2
 {
     position:absolute;
@@ -71,47 +74,64 @@ path2
     stroke-width:3;
 }
 
-.18 path
+.teen path
 {
     stroke:blue;
     fill:none;
 }
-.18 
+.teen 
 {
     stroke:blue;
     fill:none;
 }
 
-.26 path
+.twenty path
 {
     stroke:red;
     fill:none;
 }
 
-.26
+.twenty
 {
     stroke:red;
     fill:none;
 }
 
-.49
+.mid
 {
   stroke: green;
     fill:none;
 }
-.49 path
+.mid path
 {
     stroke:green;
     fill:none;
 }
 
-.50
+.old
 {
     stroke: yellow;
     fill:none;
 }
-.50 path 
+.old path 
 {
     stroke:yellow;
     fill:none;
+}
+
+
+
+.title3
+{
+    font-size:20px;
+}
+
+.label3
+{
+    font-size:20px;
+}
+
+.off3
+{
+  opacity:.1;  
 }
