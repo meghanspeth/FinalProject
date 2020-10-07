@@ -14,15 +14,16 @@ var drawreasonBars = function(reasons,target, graph, xScale,yScale)
         .attr("x", function(reason)
              {
              console.log(xScale(reason.Percentage))
-            return xScale(reason.Percentage)
+            return xScale(0)
             })
-        .attr("height", xScale.bandwidth)
+        .attr("height", yScale.bandwidth)
          .attr("width", function (reason)
            { 
        console.log (xScale(reason.Percentage))
        var x= xScale(reason.Percentage);
                console.log(xScale([0]))
-                return graph.width
+                return x
+    
             })    
 }
 
@@ -165,7 +166,7 @@ var initreasonGraph = function(reasons)
     var yScale = d3.scaleBand()
         .domain(["Couldn’t afford the cost","Didn’t know of resources closely available","Concerned about what others would think/ confidentiality","Thought they could handle without treatment","Other","Thought they would be committed or forced to take meds"])
         .range([graph.height,0])
-        .paddingInner(.50)
+        .paddingInner(.40)
 //console.log(xScale("Other"))
     var xScale = d3.scaleLinear()
         .domain([0,75])

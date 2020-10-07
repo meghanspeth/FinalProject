@@ -42,7 +42,7 @@ var drawgenderLines= function(people,target,xScale,yScale)
         .attr("r",4)
  
      //tooltip on
-    .on("mouseenter" ,function(person)
+      .on("mouseenter" ,function(person)
       {
         
       var xPos = d3.event.pageX;
@@ -53,27 +53,16 @@ var drawgenderLines= function(people,target,xScale,yScale)
         .style("top",yPos+"px")
         .style("left",xPos+"px")
         
-          d3.select("#sex")
-        .text(person.sex);
-        
-        d3.select("#percent")
-        .text(person.percentage);  
+       d3.select("#percent1")   
+        .text(person.percentage)
        
       })
-   // tool tip off
+   // tool tip off-blue line
     .on("mouseleave",function()
     {
         d3.select("#tooltip")    
         .classed("hidden",true);
     })
-
-          lines.append("path")
-       .datum(function(person)
-                {
-             
-                 return person.years
-                })
-       .attr("d", lineGenerator)
     
     //circle and mouseenter/leave functions for male line
         target.append("g")
@@ -86,7 +75,7 @@ var drawgenderLines= function(people,target,xScale,yScale)
             return xScale(entry.year)
         })
         .attr("cy", function(entry)
-             { console.log(entry)
+             { //console.log(entry)
             return yScale(entry.percentage)
         })
         .attr("r",4)
@@ -98,19 +87,20 @@ var drawgenderLines= function(people,target,xScale,yScale)
       var xPos = d3.event.pageX;
       var yPos = d3.event.pageY;
       
-        d3.select("#tooltip")
-        .classed("hidden",false)
+        d3.select("#tooltip2")
+        .classed("hidden2",false)
         .style("top",yPos+"px")
         .style("left",xPos+"px")
         
-           
+           d3.select("#percent2")
+        .text(person.percentage); 
        
       })
    // tool tip off-blue line
     .on("mouseleave",function()
     {
-        d3.select("#tooltip")    
-        .classed("hidden",true);
+        d3.select("#tooltip2")    
+        .classed("hidden2",true);
     })
 
           lines.append("path")
@@ -163,14 +153,14 @@ var drawgenderLabels = function(graphDim,margins)
                 .classed("title", true)
                 .attr("text-anchor","middle")
                 .attr("x",margins.left+(graphDim.width/2))
-                .attr("y",margins.top*1.5)
+                .attr("y",margins.top*1.1)
     
         Labels.append("text")
                 .text("Year")
                 .classed("label",true)
                 .attr("text-anchor","middle")
                 .attr("x", margins.left+(graphDim.width/2))
-                .attr("y",graphDim.height*1.25)
+                .attr("y",graphDim.height*1.3)
     
      Labels.append("g")
             .attr("transform","translate(15,"+(margins.top+(graphDim.height/2))+")")
@@ -233,7 +223,7 @@ var initgenderGraph=function(people)
     var screen = {width:600,height:300}
     //space on each side
     var margins=
-        {left:50,right:20,top:20,bottom:50}
+        {left:50,right:20,top:30,bottom:50}
     
     var graph=
         {

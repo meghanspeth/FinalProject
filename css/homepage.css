@@ -6,3 +6,6 @@ h1{font-size: 3em; color: #E85A4F;}
 li {font-size:20px;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;margin-top: 15px}
 h3{font-size: 20px; color: #E98074}
 #oprahbox{font-size: 20px; color: #E85A4F;border-width:15px; border-radius: 10px; height:300px;width:400px; background-color:#D8C3A5;padding:8px;font-family:verdana;font-size:15px;margin-top: 15px;text-align:center;float:right; margin-right: 100px; margin-bottom:100px }
+#personal{font-size: 20px; color: #E85A4F;border-width:15px; border-radius: 10px; height:350px;width:430px; background-color:#D8C3A5;padding:8px;font-family:verdana;font-size:15px;margin-top: 15px;text-align:center;float:right; margin-right: 100px; margin-bottom:100px }
+#fun {font-size:30px;color:mediumpurple;margin:none}
+#funfact {font-size: 20px; color: white;border-width:15px; border-radius: 10px; height:160px;width:300px; background-color:lightblue;padding:8px;font-family:impact;font-size:20px;margin-top: 15px;text-align:center; float:left;margin-right: 50px; margin-bottom:20px }

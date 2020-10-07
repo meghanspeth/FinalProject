@@ -20,61 +20,13 @@ var drawcompareBars = function(compare,target,graph, xScale,yScale)
               console.log(yScale(compare.total))
             return yScale(compare.total)
             })
-        .attr("width", xScale.bandwidth)
+        .attr("width", yScale.bandwidth)
          .attr("height", function (compare)
            { var y= yScale(compare.total);
                console.log(yScale([0]))
                 return graph.height - y
             })    
 }
- //target
-   // .selectAll("rect")
-  //  .data(compare)
- //   .enter()
-  //  .append("rect")
- //   .attr("cx",function(compare)
-   // {
-       // return xScale(compare.year);   
-   // })
-  //  .attr("cy",function(compare)
-  //  {
-   //     return yScale(compare.total);    
-   // })
-   // .attr("class",function(county)
-  //  {
-  //      if(county.lesscollege_pct<80)
-  //      {
-  //          return "lessCollege"        
-  //      }
-  //      else if(county.clf_unemploy_pct<6)
- //       {
-  //          return "unemployment";        
-  //      }
- //   })//tooltip on
- //   .on("mouseenter" ,function(county)
- //     {
-        
-  //    var xPos = d3.event.pageX;
-  //    var yPos = d3.event.pageY;
-      
-  //      d3.select("#tooltip")
-  //      .classed("hidden",false)
-  //      .style("top",yPos+"px")
-   //     .style("left",xPos+"px")
-  //      
-   //     d3.select("#state")
-   //     .text(county.state);
-        
-  //      d3.select("#county")
-  //      .text(county.county);
- //     })
-    //tool tip off
-  //  .on("mouseleave",function()
-  //  {
-  //      d3.select("#tooltip")    
- //       .classed("hidden",true);
- //   })
-//}
 
 }
 var makeTranslateString = function(x,y)
@@ -211,7 +163,7 @@ var initcompareGraph = function(compare)
     
     var target = d3.select("#comparebargraph")
     .append("g")
-    .attr("id","#graph")
+    .attr("id","graph")
     .attr("transform",
           "translate("+margins.left+","+
                         margins.top+")");

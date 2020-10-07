@@ -1,8 +1,8 @@
 body {background-color:#EAE7DC}
-#genderLinegraph{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;border-width:15px; border-radius: 10px;float:left;
+#genderLinegraph{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;border-width:15px; border-radius: 10px;
     width:600px;
     height:300px;}
-#lineGraph2{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;}
+#lineGraph2{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;float:right; float:up}
 #reasonsbargraph {background-color:white;margin-bottom: 20px;margin-left:40px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;}
 #return{border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;}
 #message {text-align:center; font-weight:bold;color:black}
@@ -15,38 +15,60 @@ body {background-color:#EAE7DC}
 #tooltip
 {
     position:absolute;
-    width:200px;
+    width:100px;
     height:auto;
     padding:20px;
-    background-color:white;
+    background-color:#8E8D8A;
+    color:white;
     border-radius:10px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
     pointer-events:none;
 }
 
-#sex 
+#tooltip p
 {
-   font-size:30px; 
+    margin:0;
+    font-family:sans-serif;
+    font-size: 16px;
 }
 
-#percent
-{
-    font-size:30px;
-}
-#tooltipgender
-{
-    position:absolute;
-    width:300px;
-    height:auto;
-    padding:10px;
-    background-color:white;
-    border-radius:10px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
-    pointer-events:none;
-}
-#tooltipgender.hidden
+#tooltip2.hidden2
 {
     display:none;
+}
+
+#tooltip2
+{
+    position:absolute;
+    width:100px;
+    height:auto;
+    padding:20px;
+    background-color:#8E8D8A;
+    color: white;
+    border-radius:10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+
+#tooltip2 p
+{
+    margin:0;
+    font-family:sans-serif;
+    font-size: 16px;
+}
+#sex 
+{
+   font-size:20px; 
+}
+
+#percent1
+{
+    font-size:25px;
+}
+
+#percent2
+{
+    font-size:25px;
 }
 
 path
@@ -56,6 +78,12 @@ path
     stroke-width:3;
 }
 
+pathagelines 
+{
+    stroke:blue;
+    fill:none;
+    stroke-width:3;
+}
 .male 
 {
     stroke:blue;
@@ -69,28 +97,17 @@ path
 }
 .female
 {
-    stroke:pink;
-    fill:pink;
+    stroke:#C71585;
+    fill:#C71585;
    
 }
+
+
 .female path
 {
-    stroke:pink;
+    stroke:#C71585;
     fill:none;
    
-}
-
-
-#tooltip2
-{
-    position:absolute;
-    width:300px;
-    height:auto;
-    padding:10px;
-    background-color:white;
-    border-radius:10px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
-    pointer-events:none;
 }
 
 
@@ -141,7 +158,30 @@ path
     fill:none;
 }
 
+#tooltiplines.hiddenlines
+{
+    display:none;
+}
 
+#tooltiplines
+{
+    position:absolute;
+    width:100px;
+    height:auto;
+    padding:20px;
+    background-color:white;
+    color:color;
+    border-radius:10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+
+#tooltiplines p
+{
+    margin:0;
+    font-family:sans-serif;
+    font-size: 16px;
+}
 
 .title3
 {
@@ -156,4 +196,34 @@ path
 .off3
 {
   opacity:.1;  
+}
+
+#tool3tip.hidden3
+{
+    display:none;
+}
+
+#tool3tip
+{
+    position:absolute;
+    width:100px;
+    height:auto;
+    padding:20px;
+    background-color:#8E8D8A;
+    color:white;
+    border-radius:10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+.path
+{
+    stroke: black;
+    fill:none;
+    stroke-width:3;
+}
+
+.selected path2
+{
+    stroke:gold;
+    stroke-width:6;
 }

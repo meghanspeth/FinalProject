@@ -1,7 +1,7 @@
 //ageGroup is the array of data that is divided between male and female
 //target is the seletion of the g element to place the graph in 
 //xScale, yScale are the x and y scales
-var drawageLines= function(ageGroup,target,xScale,yScale)
+var drawageLines= function(ageGroup,target,graph,xScale,yScale)
 
 {
   //line for teen age group
@@ -15,12 +15,12 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
               return yScale(group.teen)
           })
         console.log("ageGroup",ageGroup[0].teen)
-     
-     d3.select("#linegraph2") 
+       d3.select("#linegraph2") 
         .select("#graph")
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator2)
+   
     
        .on("mouseover", function(group)
      {
@@ -28,11 +28,11 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
             var yPos=d3.event.pageY;
             d3.select("#tooltip")
             .classed("hidden",false)
-            .style("top",yPos+"px")
+                .style("top",yPos+"px")
             .style("left", xPos+"px")
       
-            d3.select(this)
-            .classed("selected",true)
+         d3.select(this)
+        .classed("selected",true)
             .raise()
     }
      )
@@ -46,13 +46,17 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
     }
      )
     
+   
+    
+
+//-------------------------------    
 //line for twenty (26 or older) line
     var lineGenerator4 =d3.line()
         .x(function(group)
           { //console.log (xScale(group.Year))
             return xScale(group.Year);
         })
-          .y(function(group)
+         .y(function(group)
             { console.log (yScale(group.twenty))
               return yScale(group.twenty)
           })
@@ -74,28 +78,30 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
             .style("top",yPos+"px")
             .style("left", xPos+"px")
       
-            d3.select(this)
+            d3.select("#tooltiplines")
             .classed("selected",true)
             .raise()
-    }
-     )
+    })
+        
   
-  .on("mouseleave",function(group)
+    .on("mouseleave",function(group)
      {
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",true)
+        .classed("selected",false)
     }
      )
-    
+
+            
+//----------------------------    
     //line for mid age (26-49) group
     var lineGenerator3 =d3.line()
         .x(function(group)
-          { //console.log (xScale(group.Year))
+          { console.log (xScale(group.Year))
             return xScale(group.Year);
-        })
-          .y(function(group)
+       })
+         .y(function(group)
             { console.log (yScale(group.mid))
               return yScale(group.mid)
           })
@@ -106,9 +112,9 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         .select("#graph")
         .append("path")
         .datum(ageGroup)
-        .attr("d", lineGenerator3)
+       .attr("d", lineGenerator3)
        
-        .on("mouseover", function(group)
+  .on("mouseover", function(group)
      {
             var xPos=d3.event.pageX;
             var yPos=d3.event.pageY;
@@ -128,13 +134,14 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",true)
+        .classed("selected",false)
     }
      )
+//------------------------------
  //line for old (50 or older) line
     var lineGenerator5 =d3.line()
         .x(function(group)
-          { //console.log (xScale(group.Year))
+         { //console.log (xScale(group.Year))
             return xScale(group.Year);
         })
           .y(function(group)
@@ -150,7 +157,7 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
         .datum(ageGroup)
         .attr("d", lineGenerator5)
         .on("mouseover", function(group)
-     {
+    {
             var xPos=d3.event.pageX;
             var yPos=d3.event.pageY;
             d3.select("#tooltip")
@@ -173,7 +180,7 @@ var drawageLines= function(ageGroup,target,xScale,yScale)
     }
      )
 }
-
+//------------------------------
 
 
 var makeTranslateString = function(x,y)
@@ -194,7 +201,8 @@ var drawageAxes = function(graphDim,margins,xScale,yScale)
     
     d3.select("#linegraph2")
         .append("g")
-         .attr("transform","translate("+margins.left+"," +(margins.top)+")")
+        
+    .attr("transform","translate("+margins.left+"," +(margins.top)+")")
         .call(yAxis)
         
 }
@@ -213,7 +221,7 @@ var drawageLabels = function(graphDim,margins)
                 .classed("title", true)
                 .attr("text-anchor","middle")
                 .attr("x",margins.left+(graphDim.width/2))
-                .attr("y",margins.top*1.05)
+                .attr("y",margins.top*.8)
     
         Labels.append("text")
                 .text("Year")
@@ -307,8 +315,8 @@ var initageGraph=function(ageGroup)
     .append("g")
     .attr("id","graph")
     .attr("transform",
-          "translate("+margins.right+","+
-                        margins.bottom+")");
+          "translate("+margins.left+","+
+                        margins.top+")");
     
  
      var xScale = d3.scaleLinear()
@@ -316,13 +324,13 @@ var initageGraph=function(ageGroup)
         .range([0,graph.width])
 
     var yScale = d3.scaleLinear()
-        .domain([15,25])
+        .domain([0,30])
         .range([graph.height,0])
     
   
         
     drawageAxes(graph,margins,xScale,yScale);
-    drawageLines(ageGroup,target,xScale,yScale);
+    drawageLines(ageGroup,target,graph,xScale,yScale);
     drawageLabels(graph, margins,xScale,yScale);
     drawageLegend(graph,margins,xScale,yScale);
     
