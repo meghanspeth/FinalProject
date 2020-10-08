@@ -36,11 +36,12 @@ var drawgenderLines= function(people,target,xScale,yScale)
             return xScale(entry.year)
         })
         .attr("cy", function(entry)
-             { //console.log(entry)
+             { console.log(entry)
             return yScale(entry.percentage)
         })
         .attr("r",4)
- 
+        .attr("id","female")
+        
      //tooltip on
       .on("mouseenter" ,function(person)
       {
@@ -48,7 +49,7 @@ var drawgenderLines= function(people,target,xScale,yScale)
       var xPos = d3.event.pageX;
       var yPos = d3.event.pageY;
       
-        d3.select("#tooltip")
+        d3.select("#tooltipfemale")
         .classed("hidden",false)
         .style("top",yPos+"px")
         .style("left",xPos+"px")
@@ -60,7 +61,7 @@ var drawgenderLines= function(people,target,xScale,yScale)
    // tool tip off-blue line
     .on("mouseleave",function()
     {
-        d3.select("#tooltip")    
+        d3.select("#tooltipfemale")    
         .classed("hidden",true);
     })
     
@@ -79,7 +80,7 @@ var drawgenderLines= function(people,target,xScale,yScale)
             return yScale(entry.percentage)
         })
         .attr("r",4)
-    
+        .attr("id","male")
         //tooltip on-blue line
     .on("mouseenter" ,function(person)
       {

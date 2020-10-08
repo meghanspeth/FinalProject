@@ -1,12 +1,41 @@
 body {background-color: #EAE7DC}
 h2{font-size:25px;color:#E98074;}
+
 header{font-size: 35px; color:#E85A4F; font-weight:bold;}
 p{color:white}
-#box1 {height:300px; width:500px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;padding-bottom: 10px}
-#box2 {height:200px; width:300px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px}
-#box3 {height:300px; width:400px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px}
-h3 {border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px}
+#box1 {height:250px; width:500px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;padding-bottom: 10px; margin:30px;float:right;}
+#box2 {height:250px; width:400px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px; float:left; margin:10px; float:right;}
+#box3 {height:200px; width:400px; border-color:#E98074; border-width:15px; border-style:solid;background-color:#D8C3A5; padding-left:10px;padding-right:10px;margin-top: 15px; float:right;; margin:20px; }
 
+#image {background-color:white;margin-bottom:10px;margin-left:10px;margin-top:10px;margin-right:10px;padding-bottom:10px;border-width:15px; border-radius: 15px;float:left}
+
+#return {border-color:black;border-width:15px; border-radius: 10px; height:35px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px; float:left;}
+#Dashboard{border-color:black;border-width:15px; border-radius: 10px; height:45px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px; float:left;}
+
+#tooltip.hidden
+{
+    display:none;
+}
+
+#tooltip
+{
+    position:absolute;
+    width:100px;
+    height:auto;
+    padding:20px;
+    background-color:#8E8D8A;
+    color:white;
+    border-radius:10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    pointer-events:none;
+}
+
+#tooltip p
+{
+    margin:0;
+    font-family:sans-serif;
+    font-size: 16px;
+}
 
 #EAE7DC - brown
 #E98074 -light pink

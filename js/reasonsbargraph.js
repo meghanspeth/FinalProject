@@ -7,8 +7,9 @@ var drawreasonBars = function(reasons,target, graph, xScale,yScale)
         .data(reasons)
         .enter()
         .append("rect")
+        .attr("id","bars")
         .attr("y", function(reason)
-             { var y = yScale(reason.Reason) ; console.log(y,reason.Reason);
+             { var y = yScale(reason.ReasonShort) ; console.log(y,reason.ReasonShort);
                 return y
              })
         .attr("x", function(reason)
@@ -23,8 +24,32 @@ var drawreasonBars = function(reasons,target, graph, xScale,yScale)
        var x= xScale(reason.Percentage);
                console.log(xScale([0]))
                 return x
+            }) 
+  .on("mouseenter" ,function(reason)
+      {
+        
+      var xPos = d3.event.pageX;
+      var yPos = d3.event.pageY;
+      
+        d3.select("#tooltipreasons")
+        .classed("hiddenreasons",false)
+        .style("top",yPos+"px")
+        .style("left",xPos+"px")
+        
+        d3.select("#tooltipreasons")
+        .text(reason.Reason); 
+       
+      })
+   // tool tip off-blue line
+    .on("mouseleave",function()
+    {
+        d3.select("#tooltipreasons")    
+        .classed("hiddenreasons",true);
+    })
+
+        
+      
     
-            })    
 }
 
 
@@ -52,6 +77,7 @@ var drawreasonAxes = function(graphDim,margins,
         .append("g")
          .attr("transform","translate("+margins.left+"," +(margins.top)+")")
         .call(yAxis)
+        .attr("id","yreason")
         
 }
 
@@ -65,23 +91,24 @@ var drawreasonLabels = function(graphDim,margins)
         .classed("labels",true)
     
         Labels.append("text")
-               .text("Percentage of self reported reasons people did not seek mental health services")
+               .text("Percentage of Self Reported Reasons People Did Not Seek Mental Health Services")
                 .classed("title", true)
                 .attr("text-anchor","middle")
                 .attr("x",margins.left+(graphDim.width/2))
-                .attr("y",margins.top*1.5)
+                .attr("y",margins.top*.8)
+                .style()
     
         Labels.append("text")
-                .text("Reasons")
+                .text("Percentage")
                 .classed("label",true)
                 .attr("text-anchor","middle")
                 .attr("x", margins.left+(graphDim.width/2))
-                .attr("y",screen.height*.75)
+                .attr("y",screen.height*.74)
     
      Labels.append("g")
             .attr("transform","translate(15,"+(margins.top+(graphDim.height/2))+")")
             .append("text")
-            .text("Percentage")
+            .text("Reasons")
             .classed ("label",true)
             .attr("text-anchor","middle")
             .attr("transform","rotate(270)")
@@ -140,7 +167,7 @@ var initreasonGraph = function(reasons)
     //size of screen
     var screen = {width:800,height:600}
     //how much space on each side
-    var margins = {left:100,right:20,top:20,bottom:40}
+    var margins = {left:140,right:20,top:30,bottom:40}
     
     
     
@@ -164,7 +191,7 @@ var initreasonGraph = function(reasons)
     
     
     var yScale = d3.scaleBand()
-        .domain(["Couldn’t afford the cost","Didn’t know of resources closely available","Concerned about what others would think/ confidentiality","Thought they could handle without treatment","Other","Thought they would be committed or forced to take meds"])
+        .domain(["Cost","Resources","Confidentiality","Could Handle Themselves","Other","Forced to take Meds"])
         .range([graph.height,0])
         .paddingInner(.40)
 //console.log(xScale("Other"))

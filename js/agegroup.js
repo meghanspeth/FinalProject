@@ -20,6 +20,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator2)
+        .attr("id","teen")
    
     
        .on("mouseover", function(group)
@@ -42,7 +43,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",true)
+        .classed("selected",false)
     }
      )
     
@@ -68,30 +69,56 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator4)
-    
-        .on("mouseover", function(group)
+         .attr("id","twenty")
+   
+     .on("mouseover", function(group)
      {
             var xPos=d3.event.pageX;
             var yPos=d3.event.pageY;
             d3.select("#tooltip")
             .classed("hidden",false)
-            .style("top",yPos+"px")
+                .style("top",yPos+"px")
             .style("left", xPos+"px")
       
-            d3.select("#tooltiplines")
-            .classed("selected",true)
+         d3.select(this)
+        .classed("selected20",true)
             .raise()
-    })
-        
+    }
+     )
   
-    .on("mouseleave",function(group)
+  .on("mouseleave",function(group)
      {
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",false)
+        .classed("selected20",false)
     }
      )
+   //     .on("mouseover", function(group)
+   //  {
+    //        var xPos=d3.event.pageX;
+       //     var yPos=d3.event.pageY;
+       //     d3.select("#twenty")
+        //    .classed("hidden",false)
+        //    .style("top",yPos+"px")
+        //    .style("left", xPos+"px")
+      
+
+         //    d3.select("#tooltip")
+          //  .classed("selected",true)
+          //  .raise()
+  //  })
+        
+  
+   // .on("mouseleave",function(group)
+   //  {
+    //    d3.select("#tooltiplines")
+     //   .classed("hidden",true)
+     //   d3.select(this)
+     //   .classed("selected",false)
+        
+//  }
+  //  )
 
             
 //----------------------------    
@@ -113,6 +140,14 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         .append("path")
         .datum(ageGroup)
        .attr("d", lineGenerator3)
+     d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path")
+        .datum(ageGroup)
+        .attr("d", lineGenerator3)
+       .classed("line",true)
+        .attr("fill","none")
+       
        
   .on("mouseover", function(group)
      {
@@ -124,7 +159,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
             .style("left", xPos+"px")
       
             d3.select(this)
-            .classed("selected",true)
+            .classed("selected26",true)
             .raise()
     }
      )
@@ -134,7 +169,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",false)
+        .classed("selected26",false)
     }
      )
 //------------------------------
@@ -156,6 +191,15 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         .append("path")
         .datum(ageGroup)
         .attr("d", lineGenerator5)
+     d3.select("#linegraph2") 
+        .select("#graph")
+        .append("path")
+        .datum(ageGroup)
+        .attr("d", lineGenerator5)
+       .classed("line",true)
+        .attr("fill","none")
+        
+    
         .on("mouseover", function(group)
     {
             var xPos=d3.event.pageX;
@@ -166,7 +210,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
             .style("left", xPos+"px")
       
             d3.select(this)
-            .classed("selected",true)
+            .classed("selected50",true)
             .raise()
     }
      )
@@ -176,7 +220,7 @@ var drawageLines= function(ageGroup,target,graph,xScale,yScale)
         d3.select("#tooltip")
         .classed("hidden",true)
         d3.select(this)
-        .classed("selected",true)
+        .classed("selected50",false)
     }
      )
 }

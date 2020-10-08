@@ -1,18 +1,19 @@
+#title {text-align:center; font-weight:bold; color:black; border:10px; border-color:black;}
 body {background-color:#EAE7DC}
 #genderLinegraph{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;border-width:15px; border-radius: 10px;
     width:600px;
     height:300px;}
 #lineGraph2{background-color:white;margin-bottom: 20px;margin-left:20px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;float:right; float:up}
-#reasonsbargraph {background-color:white;margin-bottom: 20px;margin-left:40px;margin-top:20px;margin-right:20px;padding-bottom:20px;border-width:15px; border-radius: 10px;}
+#reasonsbargraph {background-color:white;margin-bottom: 20px;margin-left:40px;margin-top:30px;margin-right:20px;padding-bottom:20px;padding-top:20px;border-width:15px; border-radius: 10px;}
 #return{border-color:black;border-width:15px; border-radius: 10px; height:25px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;}
-#message {text-align:center; font-weight:bold;color:black}
+#action{border-color:black;border-width:15px; border-radius: 10px; height:45px;width:180px; background-color:white;padding:8px;font-family:verdana;font-size:15px;position:relative;}
 
-#tooltip.hidden
+#tooltipfemale.hidden
 {
     display:none;
 }
 
-#tooltip
+#tooltipfemale
 {
     position:absolute;
     width:100px;
@@ -25,7 +26,15 @@ body {background-color:#EAE7DC}
     pointer-events:none;
 }
 
+
+}
 #tooltip p
+{
+    margin:0;
+    font-family:sans-serif;
+    font-size: 16px;
+}
+#tooltipfemale p
 {
     margin:0;
     font-family:sans-serif;
@@ -101,7 +110,15 @@ pathagelines
     fill:#C71585;
    
 }
+#female
+{
+fill:#C71585;
+}
 
+#male
+{
+    fill:blue;
+}
 
 .female path
 {
@@ -111,24 +128,12 @@ pathagelines
 }
 
 
-
-.teen path
-{
-    stroke:purple;
-    fill:none;
-     stroke-width:3;
-}
 .teen 
 {
     stroke:purple;
     fill: purple;
 }
 
-.twenty path
-{
-    stroke:red;
-    fill:none;
-}
 
 .twenty
 {
@@ -141,21 +146,11 @@ pathagelines
   stroke: green;
     fill:green;
 }
-.mid path
-{
-    stroke:green;
-    fill:none;
-}
 
 .old
 {
     stroke: orange;
     fill:orange;
-}
-.old path 
-{
-    stroke:orange;
-    fill:none;
 }
 
 #tooltiplines.hiddenlines
@@ -215,15 +210,28 @@ pathagelines
     box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
     pointer-events:none;
 }
-.path
+
+
+ path.selected
 {
-    stroke: black;
-    fill:none;
-    stroke-width:3;
+stroke:red;
+stroke-width:6;
 }
 
-.selected path2
+ path.selected20
 {
-    stroke:gold;
+stroke:purple;
+stroke-width:6;
+}
+
+path.selected26
+{
+    stroke:green;
+    stroke-width:6;
+}
+
+path.selected50
+{
+    stroke:orange;
     stroke-width:6;
 }

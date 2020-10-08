@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../css/dashboard.css">
        <link rel="stylesheet" href="../css/reasonsbargraph.css">
         
-    <div id="message">
+    <div id="title">
         <h2> Interactive Dashboard</h2>
         <p> </p>
         </div>
@@ -16,7 +16,7 @@
     
     
     </svg>
-    <div class="hidden" id="tooltip"> 
+    <div class="hidden" id="tooltipfemale"> 
     <p> <strong id="sex"> Female</strong></p>
     <p> <span id="percent1"> 100</span>%</p></div>
         
@@ -29,15 +29,16 @@
     
     </svg>  
     <div class="hidden" id="tooltip">
-     
+    <p><strong id="age"> Age Group</strong></p>
     </div>
     
     
     
     <svg id="reasonsbargraph">
     </svg>
-    
-
+    <div class="hiddenreasons" id="tooltipreasons"> 
+     <p> <strong id="reason"> Reason</strong></p></div>
+       
   <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="../js/gendergraph.js"></script>
  <script src="../js/agegroup.js"> </script>
@@ -45,7 +46,9 @@
      
      
     
-<h3 id=return> <a href="homepage.html"> Return to Homepage </a></h3>
+<h3 id=return> <a href="homepage.html"> Return to Homepage </a>
+</h3>
+    <h3 id=action> <a href="calltoaction.html"> Go to Call to Action Page</a></h3>
 </body>    
 </html>
 
